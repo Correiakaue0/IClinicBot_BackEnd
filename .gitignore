@@ -26,3 +26,6 @@ rad.json
 /IClinicBot/Service/obj
 /IClinicBot/Infrastructure/obj
 /IClinicBot/Domain/obj
+/IClinicBot/Domain/bin/Debug/net8.0
+/IClinicBot/Service/bin/Debug/net8.0
+/IClinicBot/Infrastructure/bin/Debug/net8.0
