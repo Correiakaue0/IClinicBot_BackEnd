@@ -1,0 +1,6 @@
+@IClinicBot_HostAddress = http://localhost:5091
+
+GET {{IClinicBot_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
