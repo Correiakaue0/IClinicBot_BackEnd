@@ -1,4 +1,20 @@
+using IClinicBot.Domain.Interfaces.Repository;
+using IClinicBot.Domain.Interfaces.Service;
+using IClinicBot.Infrastructure.Repository;
+using IClinicBot.Service.Services;
+using Infrastructure.Context;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Injection Of Controll
+// Service
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+
+// Repository
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+
+// SqlContext
+builder.Services.AddScoped<Context, Context>();
 
 // Add services to the container.
 
@@ -8,6 +24,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Configuration Cors
+app.UseCors("corsapp");
+app.UseCors(c =>
+{
+    c.AllowAnyHeader();
+    c.AllowAnyMethod();
+    c.AllowAnyOrigin();
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
